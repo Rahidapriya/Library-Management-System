@@ -1,0 +1,23 @@
+[
+    {
+      "category_id": 1,
+      "image": " https://i.ibb.co/gm54hyP/cat-novel.jpg",
+      "name": "Novel" 
+    },
+    {
+      "category_id": 2,
+      "image": "https://i.ibb.co/JBzNLWh/cat-history2.jpg ",
+      "name": "History"
+    },
+    {
+      "category_id": 3,
+      "image": " https://i.ibb.co/8gFXfw7/cat-drama.jpg",
+      "name": "Drama"
+    },
+    {
+      "category_id": 4,
+      "image": "https://i.ibb.co/9HtWnmr/cat-mystery.jpg",
+      "name": "Mystery"
+    }
+  ]
+  
