@@ -36,7 +36,7 @@ const UpdateBooks = () => {
             if (isLoading || !_id){
               return;
             }
-            console.log('UpdateBook id:',_id);
+          
             event.preventDefault();
             const form = event.target;
             const photo = form.photo.value;
@@ -52,9 +52,7 @@ const UpdateBooks = () => {
                 rating,
                 desp,
                 photo};
-                console.log(updatedBook);
-                console.log('id:', _id); // Add this line to check the value of 'id'
-                console.log('updatedBook:', updatedBook); // 
+                
                 fetch(`http://localhost:5005/books/${_id}`,{
                     method:'PUT',
                     headers:{

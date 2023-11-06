@@ -11,6 +11,7 @@ import Swal from "sweetalert2";
 const DetailsBook = () => {
   const details = useLoaderData();
   const { _id, name, category_name, author_name, photo, quantity, rating, desp } = details;
+//   const [bookQuantity, setBookQuantity] = useState(parseInt(quantity,10));
 
   const { user } = useContext(AuthContext);
   const [selectedDate, setSelectedDate] = useState("");
@@ -24,61 +25,72 @@ const DetailsBook = () => {
 
       const handleAddToCart=(e)=>{
         e.preventDefault()
+        // if (bookQuantity === 0) {
+        //     // Quantity is already 0, prevent borrowing
+        //     return;
+        //   }
     const addtoborrow = { userEmail:user?.email,userName:user?.displayName,returnDate:selectedDate, name, category_name, author_name, photo, quantity, rating, desp  };
     console.log(addtoborrow);
   
      
-    // fetch(`http://localhost:5005/addtoborrow`,{
-    //   method:'POST',
-    //   headers:{
-    //       'content-type':'application/json'
-    //   },
-    //   body:JSON.stringify(addtoborrow)
-    //  })
-    //  .then(res=>res.json())
-    //  .then(data=>{
-    //   console.log(data);
-    //   if(data.insertedId){
-    //       Swal.fire({
-    //           title: 'Success!',
-    //           text: 'Book Borrowed Successfully',
-    //           icon: 'success',
-    //           confirmButtonText: 'Ok'
-    //         })
-    //   }
-    //  })
-    fetch(`http://localhost:5005/addtoborrow`, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(addtoborrow),
-})
-  .then((res) => {
-    if (!res.ok) {
-      throw new Error(`Network response was not ok: ${res.status}`);
-    }
-    return res.json();
-  })
-  .then((data) => {
-    console.log(data);
-    if (data.insertedId) {
-      console.log("Book borroed Successfully");
-      Swal.fire({
-        title: 'Success!',
-        text: 'Book Borrowed Successfully',
-        icon: 'success',
-        confirmButtonText: 'Ok',
-        
-      });
-    }
-  })
-  .catch((error) => {
-    console.error("Fetch error:", error);
-  });
-  
+    fetch(`http://localhost:5005/addtoborrow`,{
+      method:'POST',
+      headers:{
+          'content-type':'application/json'
+      },
+      body:JSON.stringify(addtoborrow)
+     })
+     .then(res=>res.json())
+     .then(data=>{
+      console.log(data);
+      if(data.insertedId){
+          Swal.fire({
+              title: 'Success!',
+              text: 'Book Borrowed Successfully',
+              icon: 'success',
+              confirmButtonText: 'Ok'
+            })
       }
-
+     })
+    // fetch("http://localhost:5005/addtoborrow", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(addtoborrow),
+    //   })
+    //     .then((res) => {
+    //       if (!res.ok) {
+    //         throw new Error(`Network response was not ok: ${res.status}`);
+    //       }
+    //       return res.json();
+    //     })
+    //     .then((data) => {
+    //       console.log(data);
+    //       if (data.insertedId) {
+    //         console.log("Book borrowed Successfully");
+    
+    //         // Update the book quantity in the state
+    //         setBookQuantity((prevQuantity) => {
+    //             const newQuantity = prevQuantity - 1;
+    //             if (newQuantity < 0) {
+    //               return 0; // Ensure quantity doesn't go below zero
+    //             }
+    //             return newQuantity;
+    //           });
+    
+    //         Swal.fire({
+    //           title: "Success!",
+    //           text: "Book Borrowed Successfully",
+    //           icon: "success",
+    //           confirmButtonText: "Ok",
+    //         });
+    //       }
+    //     })
+    //     .catch((error) => {
+    //       console.error("Fetch error:", error);
+    //     });
+    };
   return (
     <div>
       <Navbar></Navbar>
@@ -140,17 +152,50 @@ const DetailsBook = () => {
 
 {/* You can open the modal using document.getElementById('ID').showModal() method */}
 {/* <button className="btn" onClick={()=>document.getElementById('my_modal_4').showModal()}>open modal</button> */}
-<dialog id="my_modal_4" className="modal">
-  <div className="modal-box w-6/12 max-w-5xl flex flex-col items-center mx-auto justify-center">
-    <h3 className="font-bold text-lg">Select Your Return date</h3>
-    {/* <input type="date" placeholder="Select a date" className="input input-bordered w-full max-w-xs" /> */}
+<dialog id="my_modal_4" className="modal -z-10">
+  <div className="modal-box w-3/12 max-w-5xl flex flex-col items-center mx-auto justify-center">
+    {/*  */}
+    <div className="mb-5">
+                    <label className="mb-3 block text-base font-medium text-[#07074D]">
+                     User Name
+                    </label>
+                    <input
+                      type="text"
+                      name="displayName"
+                      id="displayName"
+                      defaultValue={user?.displayName}
+                      placeholder="Name"
+                      min="0"
+                      className="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                    />
+                  </div>
+                  <div className="mb-5">
+                  <label className="mb-3 block text-base font-medium text-[#07074D]">
+                     User Email
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      id="name"
+                      defaultValue={user?.email}
+                      placeholder="Name"
+                      min="0"
+                      className="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                    />
+                  </div>
+                  <div className="mb-5">
+                  <label className="mb-3 block text-base font-medium text-[#07074D]">
+                  Select Your Return date
+                    </label>
     <input
   type="date"
   placeholder="Select a date"
-  className="input input-bordered w-full max-w-xs"
+//   className="input input-bordered w-full max-w-xs"
   value={selectedDate} required
   onChange={(e) => setSelectedDate(e.target.value)}
+  className="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
 />
+</div>
     <div className="modal-action">
       <form method="dialog ">
         <div className="flex gap-7">
