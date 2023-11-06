@@ -40,7 +40,7 @@ Category:{category_name}
  <div className="block mb-2">
           <ReactStars
             count={5}
-            value={rating} // Pass the rating value here
+            value={parseInt(rating, 10)} // Pass the rating value here
             onChange={ratingChanged}
             size={24}
             isHalf={true}

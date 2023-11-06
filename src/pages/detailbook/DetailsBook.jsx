@@ -15,37 +15,67 @@ const DetailsBook = () => {
   const { user } = useContext(AuthContext);
   const [selectedDate, setSelectedDate] = useState("");
   
-//   console.log('Email',user.email);
+
   const ratingChanged = (newRating) => {
-    // Handle the rating change here
+   
     console.log(newRating);
   };
 
-// displayName: name
-      const handleAddToCart=(selectedDate)=>{
+
+      const handleAddToCart=(e)=>{
+        e.preventDefault()
     const addtoborrow = { userEmail:user?.email,userName:user?.displayName,returnDate:selectedDate, name, category_name, author_name, photo, quantity, rating, desp  };
     console.log(addtoborrow);
   
      
-    fetch(`http://localhost:5005/addtoborrow`,{
-      method:'POST',
-      headers:{
-          'content-type':'application/json'
-      },
-      body:JSON.stringify(addtoborrow)
-     })
-     .then(res=>res.json())
-     .then(data=>{
-      console.log(data);
-      if(data.insertedId){
-          Swal.fire({
-              title: 'Success!',
-              text: 'Book Borrowed Successfully',
-              icon: 'success',
-              confirmButtonText: 'Ok'
-            })
-      }
-     })
+    // fetch(`http://localhost:5005/addtoborrow`,{
+    //   method:'POST',
+    //   headers:{
+    //       'content-type':'application/json'
+    //   },
+    //   body:JSON.stringify(addtoborrow)
+    //  })
+    //  .then(res=>res.json())
+    //  .then(data=>{
+    //   console.log(data);
+    //   if(data.insertedId){
+    //       Swal.fire({
+    //           title: 'Success!',
+    //           text: 'Book Borrowed Successfully',
+    //           icon: 'success',
+    //           confirmButtonText: 'Ok'
+    //         })
+    //   }
+    //  })
+    fetch(`http://localhost:5005/addtoborrow`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(addtoborrow),
+})
+  .then((res) => {
+    if (!res.ok) {
+      throw new Error(`Network response was not ok: ${res.status}`);
+    }
+    return res.json();
+  })
+  .then((data) => {
+    console.log(data);
+    if (data.insertedId) {
+      console.log("Book borroed Successfully");
+      Swal.fire({
+        title: 'Success!',
+        text: 'Book Borrowed Successfully',
+        icon: 'success',
+        confirmButtonText: 'Ok',
+        
+      });
+    }
+  })
+  .catch((error) => {
+    console.error("Fetch error:", error);
+  });
   
       }
 
@@ -79,7 +109,7 @@ const DetailsBook = () => {
             <div className="block mb-2">
               <ReactStars
                 count={5}
-                value={rating} // Pass the rating value here
+                value={parseInt(rating, 10)}// Pass the rating value here
                 onChange={ratingChanged}
                 size={24}
                 isHalf={true}
@@ -118,7 +148,7 @@ const DetailsBook = () => {
   type="date"
   placeholder="Select a date"
   className="input input-bordered w-full max-w-xs"
-  value={selectedDate}
+  value={selectedDate} required
   onChange={(e) => setSelectedDate(e.target.value)}
 />
     <div className="modal-action">
@@ -126,7 +156,7 @@ const DetailsBook = () => {
         <div className="flex gap-7">
       {/* <button className="btn bg-green-500" type="submit" onClick={handleAddToCart}>Submit</button> */}
       <button
-  className="btn bg-green-500" type="submit" onClick={() => handleAddToCart(selectedDate)}>Submit
+  className="btn bg-green-500" type="submit" onClick={(e) => handleAddToCart(e)}>Submit
 </button>
         {/* if there is a button, it will close the modal */}
         <button className="btn bg-blue-400">Close</button>
