@@ -1,9 +1,14 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
-
+import ReactStars from "react-rating-stars-component";
 const CardAllBooksByCategory = ({book}) => {
    
     const {_id, name, category_name, author_name, photo, quantity, rating, desp } = book;
+    const ratingChanged = (newRating) => {
+        // Handle the rating change here
+        console.log(newRating);
+      };
     return (
         <div>
       
@@ -29,16 +34,29 @@ Category:{category_name}
 <p className="block mb-8 font-sans text-base antialiased font-normal leading-relaxed text-gray-700">
  Quantity:{quantity} 
 </p>
-<p className="block mb-8 font-sans text-base antialiased font-normal leading-relaxed text-gray-700">
+{/* <p className="block mb-8 font-sans text-base antialiased font-normal leading-relaxed text-gray-700">
  Rating:{rating}
-</p>
+</p> */}
+ <div className="block mb-2">
+          <ReactStars
+            count={5}
+            value={rating} // Pass the rating value here
+            onChange={ratingChanged}
+            size={24}
+            isHalf={true}
+            emptyIcon={<i className="far fa-star"></i>}
+            halfIcon={<i className="fa fa-star-half-alt"></i>}
+            fullIcon={<i className="fa fa-star"></i>}
+            activeColor="#ffd700"
+          />
+        </div>
 <p className="block mb-8 font-sans text-base antialiased font-normal leading-relaxed text-gray-700">
  {desp}
 </p>
 <div className="inline-block">
 
 <div className="flex lg:flex-none">
-<Link to={`../detailsproduct/${_id}`}><button className="btn mx-5 ">Details</button></Link> 
+<Link to={`../detailsbook/${_id}`}><button className="btn mx-5 ">SEE DETAILS</button></Link> 
 
 </div>
 </div>

@@ -16,6 +16,7 @@ import AllBooks from "../pages/allbooks/AllBooks";
 import BorrowedBooks from "../pages/borrowedbooks/BorrowedBooks";
 import UpdateBooks from "../pages/updatebooks/UpdateBooks";
 import AllBooksByCategory from "../pages/allbooksbycategory/AllBooksByCategory";
+import DetailsBook from "../pages/detailbook/DetailsBook";
 
 
 
@@ -52,9 +53,19 @@ import AllBooksByCategory from "../pages/allbooksbycategory/AllBooksByCategory";
           loader:({params})=>fetch(`http://localhost:5005/booksbycategory/${params.category_name}`)
         },
         {
-           path:'/borrowedbooks',
-           element:<BorrowedBooks></BorrowedBooks>
+          path:'/detailsbook/:id',
+          element:<DetailsBook></DetailsBook>,
+          loader:({params})=>fetch(`http://localhost:5005/books/${params.id}`)
         },
+        {
+          path:'/borrowedbooks',
+          element:<BorrowedBooks></BorrowedBooks>,
+          loader:()=>fetch(`http://localhost:5005/addtoborrow`)
+        },
+        // {
+        //    path:'/borrowedbooks',
+        //    element:<BorrowedBooks></BorrowedBooks>
+        // },
   
         {
             path:"/login",

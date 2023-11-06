@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import Swal from "sweetalert2";
+import formbook from '../../assets/addbookform.jpg'
 
 const AddBook = () => {
 //   const [selectedOption, setSelectedOption] = useState("");
@@ -60,13 +61,14 @@ const AddBook = () => {
       <div>
         <Navbar />
         <div>
-          <div className="flex flex-col items-center justify-center mt-20" id="services">
-            <h3 className="text-amber-500"> Add Your choosing Products</h3>
-            <h1 className="text-purple-950 text-2xl md:text-4xl font-metamorphous font-bold text-center">
+          <div className="flex flex-col items-center justify-center mt-20 bg-[#D0EAE7] py-10 w-6/12 mx-auto" id="services">
+          <img src={formbook} className="w-1/12" alt="" />
+            <h3 className="text-black"> Add Your choosing Products</h3>
+            <h1 className="text-[#ff0000] text-2xl md:text-4xl font-metamorphous font-bold text-center">
               __Add Book__
             </h1>
           </div>
-          <div className="flex items-center justify-center p-12">
+          <div className="flex items-center justify-center p-12 w-6/12 mx-auto bg-blue-200">
             <div className="mx-auto w-full max-w-[550px] shadow-lg p-6 rounded-md">
               <form onSubmit={handleAddBook}>
                 <div className="mb-5">
@@ -173,7 +175,7 @@ const AddBook = () => {
                 <div>
                   <button
                     type="submit"
-                    className="hover:shadow-form rounded-md hover:bg-purple-950 py-3 px-8 text-center text-base font-semibold text-white outline-none w-full bg-amber-500"
+                    className="hover:shadow-form rounded-md hover:bg-blue-400 py-3 px-8 text-center text-base font-semibold text-white outline-none w-full bg-[#ff0000]"
                   >
                     Add Product
                   </button>
