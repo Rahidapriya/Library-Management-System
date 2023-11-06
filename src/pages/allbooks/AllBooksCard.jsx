@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
 import { MdProductionQuantityLimits } from 'react-icons/md';
 import ReactStars from "react-rating-stars-component";
+import { Link } from 'react-router-dom';
 
 const AllBooksCard = ({ book }) => {
-  const { name, category_name, author_name, photo, quantity, rating, desp } = book;
+  const {_id, name, category_name, author_name, photo, quantity, rating, desp } = book;
 
   const ratingChanged = (newRating) => {
     // Handle the rating change here
@@ -49,7 +50,7 @@ const AllBooksCard = ({ book }) => {
         <p className="block mb-2 mt-7 font-sans text-base antialiased font-normal leading-relaxed text-gray-700">
           {desp}
         </p>
-        <a className="inline-block" href="#">
+        <Link to={`../updatebooks/${_id}`}>
           <button
             className="flex items-center gap-2 px-6 py-3 font-sans text-xs font-bold text-center text-[#ff0000] uppercase align-middle transition-all rounded-lg select-none hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             type="button"
@@ -71,7 +72,8 @@ const AllBooksCard = ({ book }) => {
               ></path>
             </svg>
           </button>
-        </a>
+          </Link>
+     
       </div>
     </div>
   );

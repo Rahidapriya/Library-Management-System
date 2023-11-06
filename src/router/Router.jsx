@@ -14,6 +14,8 @@ import ErrorPage from "../pages/errorpage/ErrorPage";
 import AddBook from "../pages/addbook/AddBook";
 import AllBooks from "../pages/allbooks/AllBooks";
 import BorrowedBooks from "../pages/borrowedbooks/BorrowedBooks";
+import UpdateBooks from "../pages/updatebooks/UpdateBooks";
+import AllBooksByCategory from "../pages/allbooksbycategory/AllBooksByCategory";
 
 
 
@@ -36,6 +38,18 @@ import BorrowedBooks from "../pages/borrowedbooks/BorrowedBooks";
            path:'/allbooks',
            element:<AllBooks></AllBooks>,
            loader:()=>fetch('http://localhost:5005/books')
+        },
+        {
+          path:'/updatebooks/:id',
+          element:<UpdateBooks></UpdateBooks>,
+          loader:({params})=>fetch(`http://localhost:5005/books/${params.id}`)
+          
+          
+        },
+        {
+          path:'/allbooks/:category_name',
+          element:<AllBooksByCategory></AllBooksByCategory>,
+          loader:({params})=>fetch(`http://localhost:5005/booksbycategory/${params.category_name}`)
         },
         {
            path:'/borrowedbooks',
