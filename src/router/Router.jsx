@@ -1,9 +1,7 @@
 import {
-    createBrowserRouter,
-  
-  } from "react-router-dom";
+  createBrowserRouter,
 
-
+} from "react-router-dom";
 
 
 import MainLayout from "../layouts/MainLayout";
@@ -20,64 +18,64 @@ import DetailsBook from "../pages/detailbook/DetailsBook";
 
 
 
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <MainLayout></MainLayout>,
-      errorElement:<ErrorPage></ErrorPage>,
-      children:[
-        {
-            path:'/',
-            element:<Home></Home>,
-            loader:()=>fetch('http://localhost:5005/bookcategorycard')
-        },
-        {
-           path:'/addbook',
-           element:<AddBook></AddBook>
-        },
-        {
-           path:'/allbooks',
-           element:<AllBooks></AllBooks>,
-           loader:()=>fetch('http://localhost:5005/books')
-        },
-        {
-          path:'/updatebooks/:id',
-          element:<UpdateBooks></UpdateBooks>,
-          loader:({params})=>fetch(`http://localhost:5005/books/${params.id}`)
-          
-          
-        },
-        {
-          path:'/allbooks/:category_name',
-          element:<AllBooksByCategory></AllBooksByCategory>,
-          loader:({params})=>fetch(`http://localhost:5005/booksbycategory/${params.category_name}`)
-        },
-        {
-          path:'/detailsbook/:id',
-          element:<DetailsBook></DetailsBook>,
-          loader:({params})=>fetch(`http://localhost:5005/books/${params.id}`)
-        },
-        {
-          path:'/borrowedbooks',
-          element:<BorrowedBooks></BorrowedBooks>,
-          loader:()=>fetch(`http://localhost:5005/addtoborrow`)
-        },
-        // {
-        //    path:'/borrowedbooks',
-        //    element:<BorrowedBooks></BorrowedBooks>
-        // },
-  
-        {
-            path:"/login",
-            element:<Login></Login>
-          },
-          {
-            path:"/register",
-            element:<Register></Register>
-          }
-       
-      ]
-    },
-   
-  ]);
-  export default router;
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: '/',
+        element: <Home></Home>,
+        loader: () => fetch('https://id-8-serversite.vercel.app/bookcategorycard')
+      },
+      {
+        path: '/addbook',
+        element: <AddBook></AddBook>
+      },
+      {
+        path: '/allbooks',
+        element: <AllBooks></AllBooks>,
+        loader: () => fetch('https://id-8-serversite.vercel.app/books')
+      },
+      {
+        path: '/updatebooks/:id',
+        element: <UpdateBooks></UpdateBooks>,
+        loader: ({ params }) => fetch(`https://id-8-serversite.vercel.app/books/${params.id}`)
+
+
+      },
+      {
+        path: '/allbooks/:category_name',
+        element: <AllBooksByCategory></AllBooksByCategory>,
+        loader: ({ params }) => fetch(`https://id-8-serversite.vercel.app/booksbycategory/${params.category_name}`)
+      },
+      {
+        path: '/detailsbook/:id',
+        element: <DetailsBook></DetailsBook>,
+        loader: ({ params }) => fetch(`https://id-8-serversite.vercel.app/books/${params.id}`)
+      },
+      {
+        path: '/borrowedbooks',
+        element: <BorrowedBooks></BorrowedBooks>,
+        loader: () => fetch(`https://id-8-serversite.vercel.app/addtoborrow`)
+      },
+      // {
+      //    path:'/borrowedbooks',
+      //    element:<BorrowedBooks></BorrowedBooks>
+      // },
+
+      {
+        path: "/login",
+        element: <Login></Login>
+      },
+      {
+        path: "/register",
+        element: <Register></Register>
+      }
+
+    ]
+  },
+
+]);
+export default router;

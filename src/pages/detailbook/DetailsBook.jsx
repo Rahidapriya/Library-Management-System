@@ -33,7 +33,7 @@ const DetailsBook = () => {
     console.log(addtoborrow);
   
      
-    fetch(`http://localhost:5005/addtoborrow`,{
+    fetch(`https://id-8-serversite.vercel.app/addtoborrow`,{
       method:'POST',
       headers:{
           'content-type':'application/json'
@@ -52,7 +52,7 @@ const DetailsBook = () => {
             })
       }
      })
-    // fetch("http://localhost:5005/addtoborrow", {
+    // fetch("https://id-8-serversite.vercel.app/addtoborrow", {
     //     method: "POST",
     //     headers: {
     //       "Content-Type": "application/json",

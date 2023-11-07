@@ -22,7 +22,7 @@ const BorrowedCard = ({myBook, myBorrowedBooks,setMyBorrowedBooks}) => {
               if (result.isConfirmed) {
             
               console.log('delete confirm');
-              fetch(`http://localhost:5005/addtoborrow/${_id}`,{
+              fetch(`https://id-8-serversite.vercel.app/addtoborrow/${_id}`,{
                   method:'DELETE'
                   
               })

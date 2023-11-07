@@ -53,7 +53,7 @@ const UpdateBooks = () => {
                 desp,
                 photo};
                 
-                fetch(`http://localhost:5005/books/${_id}`,{
+                fetch(`https://id-8-serversite.vercel.app/books/${_id}`,{
                     method:'PUT',
                     headers:{
                         'content-type':'application/json'

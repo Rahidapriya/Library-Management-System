@@ -6,7 +6,6 @@ import BookCategoryCard from "../../components/bookcategorycard/BookCategoryCard
 import CountUsersBooks from "../../components/countUsersBooks/CountUsersBooks";
 import Footer from "../../components/footer/Footer";
 import AboutUs from "../../components/aboutus/AboutUs";
-import librarybook from '../../assets/librarybook.jpg';
 import homebook from '../../assets/homebook.jpg';
 
 const Home = () => {
