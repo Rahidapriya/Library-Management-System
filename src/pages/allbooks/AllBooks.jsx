@@ -85,7 +85,7 @@ const AllBooks = () => {
          
         </select> */}
       </div>
-     <div className="flex items-center justify-end gap-2">
+     <div className="flex items-center justify-end gap-2 mb-10">
       
         <BiFilterAlt className="text-4xl text-[#ff0000] "></BiFilterAlt>
         <p>Filter:</p>
@@ -101,12 +101,14 @@ const AllBooks = () => {
       </div>
      </div>
       <div className="flex flex-col items-center">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mx-5 my-5 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-5 my-5 gap-6">
           {filteredBooks.map((book) => (
             <AllBooksCard key={book._id} book={book} />
           ))}
         </div>
+       
       </div>
+     
     </div>
   );
 };

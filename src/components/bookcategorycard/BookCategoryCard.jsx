@@ -8,7 +8,7 @@ const BookCategoryCard = ({ card }) => {
 // </script>
     const { category_name, image, } = card;
     return (
-      <div className="w-96  bg-blue-400 my-3 rounded-md " >
+      <div className=" bg-blue-400 my-3 rounded-md " >
         <div className="relative mx-4 mt-4 overflow-hidden text-black bg-blue-400 h-72 rounded-xl bg-clip-border">
           <img src={image} className="h-full" alt={category_name} />
         </div>
