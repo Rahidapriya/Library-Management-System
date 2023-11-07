@@ -6,7 +6,8 @@ import BookCategoryCard from "../../components/bookcategorycard/BookCategoryCard
 import CountUsersBooks from "../../components/countUsersBooks/CountUsersBooks";
 import Footer from "../../components/footer/Footer";
 import AboutUs from "../../components/aboutus/AboutUs";
-import librarybook from '../../assets/librarybook.jpg'
+import librarybook from '../../assets/librarybook.jpg';
+import homebook from '../../assets/homebook.jpg';
 
 const Home = () => {
     const cards=useLoaderData();
@@ -20,9 +21,9 @@ const Home = () => {
              <h3 className='text-[#ff0000]'>Choose Your Book Category</h3>
              <h1 className='text-black text-2xl md:text-4xl font-metamorphous font-bold text-center'>__Book Category__</h1>
             </div>
-         <div className="flex flex-col lg:flex-row  items-center  justify-around">
+         <div className="flex flex-col lg:flex-row  items-center  justify-center">
             <div className="w-5/12">
-            <img src={librarybook} alt="" />
+            <img src={homebook} alt="" />
             </div>
          <div className='flex flex-col items-center w-5/12'>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 my-10 lg:my-20 gap-2">

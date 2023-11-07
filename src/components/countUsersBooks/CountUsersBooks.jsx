@@ -1,4 +1,4 @@
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import img1 from '../../assets/banner-1.jpg';
 import img2 from '../../assets/banner-2.jpg';
 import img3 from '../../assets/banner-3.jpg';
@@ -30,9 +30,9 @@ const CountUsersBooks = () => {
   }, [booksCount, usersCount, happyUsersCount]);
 
   return (
-    <div className='grid grid-cols-1 lg:grid-cols-3 gap-10 mx-32 '>
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mx-32 my-36">
       <div>
-        <div className="hero h-64  " style={{ backgroundImage: `url(${img1})` }}>
+        <div className="hero h-64" style={{ backgroundImage: `url(${img1})`,backgroundSize:'27% 50%', backgroundAttachment: 'fixed' }}>
           <div className="hero-overlay bg-opacity-60"></div>
           <div className="hero-content text-center text-neutral-content">
             <div className="max-w-md">
@@ -47,7 +47,7 @@ const CountUsersBooks = () => {
       </div>
       {/*  */}
       <div>
-        <div className="hero h-64" style={{ backgroundImage: `url(${img3})` }}>
+        <div className="hero h-64" style={{ backgroundImage: `url(${img3})`, backgroundSize: '27% 50%', backgroundAttachment: 'fixed' }}>
           <div className="hero-overlay bg-opacity-60"></div>
           <div className="hero-content text-center text-neutral-content">
             <div className="max-w-md">
@@ -62,7 +62,7 @@ const CountUsersBooks = () => {
       </div>
       {/*  */}
       <div>
-        <div className="hero h-64" style={{ backgroundImage: `url(${img2})` }}>
+        <div className="hero h-64" style={{ backgroundImage: `url(${img2})`, backgroundSize: '27% 60%', backgroundAttachment: 'fixed' }}>
           <div className="hero-overlay bg-opacity-60"></div>
           <div className="hero-content text-center text-neutral-content">
             <div className="max-w-md">
