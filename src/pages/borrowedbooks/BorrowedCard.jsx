@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useContext } from 'react';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const BorrowedCard = ({ myBook, myBorrowedBooks, setMyBorrowedBooks }) => {
   const { _id, name, category_name, author_name, photo, returnDate, borrowDate, bookId } = myBook;
+  const { user } = useContext(AuthContext);
   const handleDelete = (_id, bookId) => {
     console.log("deleteid:", _id);
   

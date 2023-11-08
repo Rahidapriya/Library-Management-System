@@ -9,6 +9,7 @@ const CardAllBooksByCategory = ({book}) => {
         // Handle the rating change here
         console.log(newRating);
       };
+      const truncatedDescription = `${desp.split(' ').slice(0, 20).join(' ')}${desp.split(' ').length > 20 ? '...' : ''}`;
     return (
         <div>
       
@@ -51,7 +52,7 @@ Category:{category_name}
           />
         </div>
 <p className="block mb-8 font-sans text-base antialiased font-normal leading-relaxed text-gray-700">
- {desp}
+ {truncatedDescription}
 </p>
 <div className="inline-block">
 

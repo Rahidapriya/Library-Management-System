@@ -7,6 +7,7 @@ import img3 from '../../assets/librarybook.jpg';
 // Import a unique identifier generator
 import { v4 as uuidv4 } from 'uuid';
 import Footer from "../../components/footer/Footer";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const AddBook = () => {
   const [category_name, setCategory_name] = useState("");
@@ -19,7 +20,7 @@ const AddBook = () => {
   const handleIdChange = (e) => {
     setBookId(e.target.value);
   };
-
+  const navigate=useNavigate();
   const handleAddBook = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -59,6 +60,7 @@ const AddBook = () => {
             icon: "success",
             confirmButtonText: "Ok",
           });
+          navigate('/'); 
         }
       });
   };

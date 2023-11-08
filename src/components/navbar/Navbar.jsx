@@ -161,7 +161,7 @@ const Navbar = ({ children }) => {
         <div className="hidden lg:flex  ">
         <CiLogin className="text-2xl"></CiLogin>
       {
-        user?<button onClick={handleSignOut} className="btn btn-sm md:btn-md border border-white-2 ">Log Out</button>
+        user?<button onClick={handleSignOut} className="btn btn-sm md:btn-md border text-white bg-warning border-white-2 ">Log Out</button>
         :   <Link to='/login'> <button className="py-2 text-white bg-[#ff0000] px-6 border border-white-2 border-none lg:ml-5 rounded-sm">Login</button></Link>
       }
       </div>
@@ -198,7 +198,7 @@ const Navbar = ({ children }) => {
            <CiLogin className="text-2xl"></CiLogin>
             {
 
-        user?<button onClick={handleSignOut} className="btn w-full lg:hidden border border-white-2">Log Out</button>
+        user?<button onClick={handleSignOut} className="btn w-full lg:hidden border bg-warning text-white border-white-2">Log Out</button>
         :   <Link to='/login'> <button className="btn text-white bg-[#ff0000] px-6  border-none lg:ml-5 rounded-sm">Login</button></Link>
       }
            </div>
