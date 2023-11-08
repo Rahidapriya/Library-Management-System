@@ -15,6 +15,8 @@ import BorrowedBooks from "../pages/borrowedbooks/BorrowedBooks";
 import UpdateBooks from "../pages/updatebooks/UpdateBooks";
 import AllBooksByCategory from "../pages/allbooksbycategory/AllBooksByCategory";
 import DetailsBook from "../pages/detailbook/DetailsBook";
+import PrivateRoute from "./PrivateRoute";
+
 
 
 
@@ -31,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/addbook',
-        element: <AddBook></AddBook>
+        element: <PrivateRoute><AddBook></AddBook></PrivateRoute>
       },
       {
         path: '/allbooks',
@@ -40,7 +42,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/updatebooks/:id',
-        element: <UpdateBooks></UpdateBooks>,
+        element: <PrivateRoute><UpdateBooks></UpdateBooks></PrivateRoute>,
         loader: ({ params }) => fetch(`https://id-8-serversite.vercel.app/books/${params.id}`)
 
 
@@ -52,12 +54,12 @@ const router = createBrowserRouter([
       },
       {
         path: '/detailsbook/:id',
-        element: <DetailsBook></DetailsBook>,
+        element: <PrivateRoute><DetailsBook></DetailsBook></PrivateRoute>,
         loader: ({ params }) => fetch(`https://id-8-serversite.vercel.app/books/${params.id}`)
       },
       {
         path: '/borrowedbooks',
-        element: <BorrowedBooks></BorrowedBooks>,
+        element: <PrivateRoute><BorrowedBooks></BorrowedBooks></PrivateRoute>,
         loader: () => fetch(`https://id-8-serversite.vercel.app/addtoborrow`)
       },
       // {

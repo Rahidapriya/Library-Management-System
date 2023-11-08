@@ -9,12 +9,12 @@ const AboutUs = () => {
     <div className="relative" style={{ backgroundImage: `url(${contact})`, backgroundSize: 'cover', backgroundAttachment: 'fixed' }}>
       <div className="absolute inset-0 bg-black opacity-70" />
 
-      <div className="relative z-30 text-white py-16">
+      <div className="relative z-10 text-white py-16">
         <div className="flex flex-col items-center justify-center mt-20 mb-20" id="services">
           <h3 className="text-[#ff0000]">Know about us</h3>
           <h1 className="text-white text-2xl md:text-4xl font-metamorphous font-bold text-center">__About Us__</h1>
         </div>
-        <div className="px-10 py-10 w-8/12 mx-auto">
+        <div className="px-10 py-10 w-full lg:w-8/12 mx-auto">
           <div className="flex gap-16 items-center justify-center">
             <div>
               <BsFillBarChartFill className="text-3xl text-warning" />

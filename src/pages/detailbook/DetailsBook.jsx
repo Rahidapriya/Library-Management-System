@@ -59,7 +59,8 @@ const DetailsBook = () => {
       })
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
+        if (data) {
+          // alert('book borrowed')
           Swal.fire({
             title: 'Success!',
             text: 'Book Borrowed Successfully',
@@ -69,8 +70,14 @@ const DetailsBook = () => {
           setBookQuantity((prevQuantity) => {
             const newQuantity = prevQuantity - 1;
             if (newQuantity < 0) {
-              return 0; // Ensure quantity doesn't go below zero
+              return 0;
             }
+            // Swal.fire({
+            //   title: 'Success!',
+            //   text: 'Book Borrowed Successfully',
+            //   icon: 'success',
+            //   confirmButtonText: 'Ok',
+            // });
             return newQuantity;
           });
         }

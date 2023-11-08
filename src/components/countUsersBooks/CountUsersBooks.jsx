@@ -30,7 +30,7 @@ const CountUsersBooks = () => {
   }, [booksCount, usersCount, happyUsersCount]);
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mx-32 my-36">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mx-5 lg:mx-32 my-36">
       <div>
         <div className="hero h-64" style={{ backgroundImage: `url(${img1})`,backgroundSize:'27% 50%', backgroundAttachment: 'fixed' }}>
           <div className="hero-overlay bg-opacity-60"></div>
