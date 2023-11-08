@@ -109,7 +109,7 @@ const DetailsBook = () => {
               </p>
               <div className="flex items-center">
                 <MdProductionQuantityLimits className='text-3xl text-[#ff0000] font-bold'></MdProductionQuantityLimits>
-                <p className="block font-sans font-bold antialiased text-xl leading-relaxed text-blue-gray-900">
+                <p className="block font-sans font-bold antialiased text-sm lg:text-xl leading-relaxed text-blue-gray-900">
                   Quantity: {bookQuantity}
                 </p>
               </div>
@@ -147,8 +147,8 @@ const DetailsBook = () => {
               BORROW
             </button>
             <dialog id="my_modal_4" className="modal -z-10">
-              <div className="modal-box w-3/12 max-w-5xl flex flex-col items-center mx-auto justify-center">
-                <div className="mb-5">
+              <div className="modal-box w-11/12 lg:w-3/12 max-w-5xl flex flex-col items-center mx-auto justify-center">
+                <div className="lg:mb-5">
                   <label className="mb-3 block text-base font-medium text-[#07074D]">
                     User Name
                   </label>
@@ -162,7 +162,7 @@ const DetailsBook = () => {
                     className="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                   />
                 </div>
-                <div className="mb-5">
+                <div className="lg:mb-5">
                   <label className="mb-3 block text-base font-medium text-[#07074D]">
                     User Email
                   </label>
@@ -176,7 +176,7 @@ const DetailsBook = () => {
                     className="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                   />
                 </div>
-                <div className="mb-5">
+                <div className="lg:mb-5">
                   <label className="mb-3 block text-base font-medium text-[#07074D]">
                     Select Your Return date
                   </label>
@@ -191,7 +191,7 @@ const DetailsBook = () => {
                 </div>
                 <div className="modal-action">
                   <form method="dialog">
-                    <div className="flex gap-7">
+                    <div className="flex flex-col lg:flex-row lg:gap-7">
                       <button
                         className="btn bg-green-500"
                         type="submit"
@@ -207,7 +207,7 @@ const DetailsBook = () => {
             </dialog>
             <Link to={`../readbook/${_id}`}>
             <button
-              className="block w-full select-none rounded-lg bg-green-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+              className="block w-full select-none rounded-lg bg-green-500 py-3 lg:px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
               type="button"
             >
               READ

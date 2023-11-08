@@ -21,11 +21,11 @@ const Home = () => {
              <h1 className='text-black text-2xl md:text-4xl font-metamorphous font-bold text-center'>__Book Category__</h1>
             </div>
          <div className="flex flex-col lg:flex-row  items-center  justify-center">
-            <div className="w-5/12">
+            <div className="lg:w-5/12">
             <img src={homebook} alt="" />
             </div>
          <div className='flex flex-col items-center w-full lg:w-5/12'>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 my-10 lg:my-20 gap-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 my-10 lg:my-20 lg:gap-2">
                                 {
                                     cards.map(card=><BookCategoryCard key={card._id} card={card}></BookCategoryCard>)
                                 }

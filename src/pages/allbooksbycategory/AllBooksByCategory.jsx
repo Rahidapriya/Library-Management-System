@@ -26,9 +26,9 @@ const AllBooksByCategory = () => {
             <div>
       <Navbar></Navbar>
      
-      <h2 className='text-center text-3xl m-10 font-bold'>Available Books: {books.length}</h2>
+      <h2 className='text-center text-3xl lg:m-10 font-bold'>Available Books: {books.length}</h2>
 
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-10 mx-20 my-16'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:gap-10 lg:mx-20 my-16'>
         {books.map((book) => (
           <CardAllBooksByCategory key={book._id} book ={book}></CardAllBooksByCategory>
         ))
