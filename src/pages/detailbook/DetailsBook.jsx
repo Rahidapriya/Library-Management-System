@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useContext, useState } from "react";
 import ReactStars from "react-rating-stars-component";
@@ -205,12 +205,14 @@ const DetailsBook = () => {
                 </div>
               </div>
             </dialog>
+            <Link to={`../readbook/${_id}`}>
             <button
               className="block w-full select-none rounded-lg bg-green-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
               type="button"
             >
               READ
             </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -16,6 +16,7 @@ import UpdateBooks from "../pages/updatebooks/UpdateBooks";
 import AllBooksByCategory from "../pages/allbooksbycategory/AllBooksByCategory";
 import DetailsBook from "../pages/detailbook/DetailsBook";
 import PrivateRoute from "./PrivateRoute";
+import Read from "../pages/read/Read";
 
 
 
@@ -34,6 +35,11 @@ const router = createBrowserRouter([
       {
         path: '/addbook',
         element: <PrivateRoute><AddBook></AddBook></PrivateRoute>
+      },
+      {
+        path: '/readbook/:id',
+        element: <PrivateRoute><Read></Read></PrivateRoute>,
+        loader: ({ params }) => fetch(`https://id-8-serversite.vercel.app/books/${params.id}`)
       },
       {
         path: '/allbooks',
