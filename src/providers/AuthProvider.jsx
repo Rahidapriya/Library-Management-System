@@ -4,6 +4,7 @@ import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged,
 import { createContext, useEffect, useState } from "react";
 import { getAuth } from "firebase/auth";
 import app from '../components/firebase/firebase.config'
+import axios from "axios";
 const auth = getAuth(app);
 const googleProvider=new GoogleAuthProvider()
 export const AuthContext = createContext(null);
@@ -66,6 +67,23 @@ const googleSignIn=(value)=>{
             console.log('user in the auth state change', currentUser);
             setUser(currentUser);
             setLoding(false);
+
+const userEmail=currentUser?.email || user?.email;
+const loggedUser={email:userEmail};
+if(currentUser){
+   
+    axios.post('https://id-8-serversite.vercel.app/jwt',loggedUser,{withCredentials:true})
+    .then(res=>{
+        console.log('token response',res.data);
+    })
+}
+else{
+    axios.post('https://id-8-serversite.vercel.app/logout',loggedUser,{withCredentials:true})
+    .then(res=>{
+        console.log(res.data);
+    })
+}
+           
 
         });
         return () => {

@@ -36,7 +36,7 @@ const BorrowedBooks = () => {
           <div>
           <Navbar></Navbar>
           <div className="flex justify-between border-b pb-8 m-20">
-            <h1 className="font-semibold text-2xl">Shopping Cart</h1>
+            <h1 className="font-semibold text-2xl">Borrowed Books</h1>
             <h2 className="font-semibold text-2xl">{filteredBooks.length} Items</h2>
           </div>
           {filteredBooks.length > 0 ? ( 

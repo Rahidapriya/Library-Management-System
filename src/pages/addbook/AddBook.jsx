@@ -4,11 +4,19 @@ import Swal from "sweetalert2";
 import formbook from '../../assets/addbookform.jpg';
 import img3 from '../../assets/librarybook.jpg';
 
+// Import a unique identifier generator
+import { v4 as uuidv4 } from 'uuid';
+
 const AddBook = () => {
   const [category_name, setCategory_name] = useState("");
+  const [bookId, setBookId] = useState(uuidv4()); // Auto-generate a unique _id
 
   const handleCategorySelectChange = (e) => {
     setCategory_name(e.target.value);
+  };
+
+  const handleIdChange = (e) => {
+    setBookId(e.target.value);
   };
 
   const handleAddBook = (event) => {
@@ -22,6 +30,7 @@ const AddBook = () => {
     const desp = form.desp.value;
 
     const newBook = {
+      bookId,
       category_name,
       name,
       author_name,
@@ -180,6 +189,21 @@ const AddBook = () => {
                   id="desp"
                   placeholder="Description"
                   min="0"
+                  className="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                />
+              </div>
+              <div className="mb-5">
+                <label className="mb-3 block text-base font-medium text-[#07074D]">
+                  Custom _id:
+                </label>
+                <input
+                  type="text"
+                  name="bookId"
+                  id="bookId"
+                  placeholder="Custom _id (optional)"
+                  min="0"
+                  value={bookId}
+                  onChange={handleIdChange}
                   className="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                 />
               </div>
