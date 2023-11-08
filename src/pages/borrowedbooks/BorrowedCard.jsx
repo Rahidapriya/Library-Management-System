@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import Footer from '../../components/footer/Footer';
 
 const BorrowedCard = ({myBook, myBorrowedBooks,setMyBorrowedBooks}) => {
-    const {_id, name, category_name, author_name, photo, quantity, rating, desp ,returnDate} = myBook;
+    const {_id, name, category_name, author_name, photo, quantity, rating, desp ,returnDate,borrowDate} = myBook;
 
         // delete
         const handleDelete = _id =>{
@@ -63,18 +63,16 @@ const BorrowedCard = ({myBook, myBorrowedBooks,setMyBorrowedBooks}) => {
       {category_name}
     </p>
     <p className="block font-sans text-sm antialiased font-normal  leading-normal  text-gray-700 opacity-75">
+    Borrow Date:{borrowDate}
+    </p>
+    <p className="block font-sans text-sm antialiased font-normal  leading-normal  text-gray-700 opacity-75">
     Return Date:{returnDate}
     </p>
    
   </div>
   <div className="p-6 pt-0 bg-warning">
   <button onClick={()=>handleDelete(_id)} className=" float-right w-full font-semibold mt-10 btn text-black hover:text-red-500 text-xs">RETURN BOOK</button>
-    {/* <button
-      className="block w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-      type="button"
-    >
-      RETURN BOOK
-    </button> */}
+    
   </div>
 </div>
 {/* <Footer></Footer> */}
