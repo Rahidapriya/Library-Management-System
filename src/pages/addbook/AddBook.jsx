@@ -6,6 +6,7 @@ import img3 from '../../assets/librarybook.jpg';
 
 // Import a unique identifier generator
 import { v4 as uuidv4 } from 'uuid';
+import Footer from "../../components/footer/Footer";
 
 const AddBook = () => {
   const [category_name, setCategory_name] = useState("");
@@ -219,6 +220,7 @@ const AddBook = () => {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

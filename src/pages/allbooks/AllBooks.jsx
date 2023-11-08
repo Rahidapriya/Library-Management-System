@@ -3,6 +3,7 @@ import AllBooksCard from "./AllBooksCard";
 import { useState } from "react";
 import { BiFilterAlt } from 'react-icons/bi';
 import Navbar from "../../components/navbar/Navbar";
+import Footer from "../../components/footer/Footer";
 
 const AllBooks = () => {
   const allBooks = useLoaderData();
@@ -63,7 +64,7 @@ const AllBooks = () => {
         </div>
        
       </div>
-     
+     <Footer></Footer>
     </div>
   );
 };

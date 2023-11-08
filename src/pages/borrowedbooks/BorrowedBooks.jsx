@@ -62,6 +62,7 @@ const BorrowedBooks = () => {
                   Continue Borrow
                 </button>
               </Link>
+              <Footer></Footer>
             </div>
           ) : (
             <div className="text-center m-10">
