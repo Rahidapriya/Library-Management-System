@@ -22,19 +22,33 @@ const DetailsBook = () => {
 
   const handleAddToCart = (e) => {
     e.preventDefault();
-
+  
     const currentDate = new Date();
     const year = currentDate.getFullYear();
     const month = String(currentDate.getMonth() + 1).padStart(2, '0');
     const day = String(currentDate.getDate()).padStart(2, '0');
     const formattedDate = `${year}-${month}-${day}`;
-
+  
+    const returnDate = selectedDate;
+  
+    if (!returnDate) {
+      document.getElementById('my_modal_4').close();
+      // If return date is not selected, show an alert
+      Swal.fire({
+        title: 'Error!',
+        text: 'Please select a return date',
+        icon: 'error',
+        confirmButtonText: 'Ok',
+      });
+      return; // Stop further execution
+    }
+  
     const addtoborrow = {
       userEmail: user?.email,
       userName: user?.displayName,
       borrowDate: formattedDate,
       returnDate: selectedDate,
-      bookId, // Use the common bookId
+      bookId,
       name,
       category_name,
       author_name,
@@ -43,8 +57,11 @@ const DetailsBook = () => {
       rating,
       desp,
     };
-
-    fetch('https://id-8-serversite.vercel.app/addtoborrow', { // Use your actual API route for borrowing
+  
+    // Close the modal before making the fetch request
+    document.getElementById('my_modal_4').close();
+  
+    fetch('https://id-8-serversite.vercel.app/addtoborrow', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -58,34 +75,34 @@ const DetailsBook = () => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
         if (data) {
-          // alert('book borrowed')
           Swal.fire({
             title: 'Success!',
             text: 'Book Borrowed Successfully',
             icon: 'success',
             confirmButtonText: 'Ok',
           });
+  
           setBookQuantity((prevQuantity) => {
             const newQuantity = prevQuantity - 1;
-            if (newQuantity < 0) {
-              return 0;
-            }
-            // Swal.fire({
-            //   title: 'Success!',
-            //   text: 'Book Borrowed Successfully',
-            //   icon: 'success',
-            //   confirmButtonText: 'Ok',
-            // });
-            return newQuantity;
+            return newQuantity < 0 ? 0 : newQuantity;
           });
         }
       })
       .catch((error) => {
         console.error('Fetch error:', error);
+        Swal.fire({
+          title: 'Error!',
+          text: 'You have already borrowed that book',
+          icon: 'error',
+          confirmButtonText: 'Ok',
+        });
       });
   };
+  
+  
+  
+  
 
   return (
     <div>
