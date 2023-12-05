@@ -1,5 +1,6 @@
-# Assignment_ID: assignment_category_0008 #
-## Library Management System ##
+
+# Library Management System #
+
 ## Project Features ##
 
 * Users can register on the website and log in via email or Google.
@@ -17,4 +18,15 @@
   * User can Read a book
   * Every user have different Borrowed books section
 
+  ## Tech Stack
+### Frontend
+- Developed using React and Vite for a fast and reactive user interface.
+### Styling
+- Tailwind CSS for utility-first styling.
+- Vanilla CSS for custom styling.
+### Backend
+- MongoDB for storing and managing pet data.
+- Firebase for authentication.
+
    - Live Link : [Click Here](https://id-8-a11.web.app/) 
+   - Server Site Github Repository :[Click Here](https://github.com/Rahidapriya/Library-Management-System-Server-Site)
