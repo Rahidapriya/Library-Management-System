@@ -1,5 +1,8 @@
 # Library Management System #
 
+## Project Overview ##
+  Boipoka is a sophisticated web-based Library Management System designed to streamline and enhance the process of borrowing and returning books. This system is developed to provide users with a seamless and efficient experience in managing their reading preferences, borrowing history, and exploring a diverse collection of books available in the library.
+
 ## Project Features ##
 
 * **User Authentication:**

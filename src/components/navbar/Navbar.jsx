@@ -107,7 +107,7 @@ const Navbar = ({ children }) => {
       <div className="drawer z-30  fixed">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
-          <div className={` shadow-md w-full ${darkThemeClass}`}>
+          <div className={`  w-full ${darkThemeClass}`}>
             <div className="max-w-[1200px] mx-auto navbar">
               <div className="flex-none lg:hidden">
                 <label
