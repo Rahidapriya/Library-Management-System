@@ -7,6 +7,7 @@ import CountUsersBooks from "../../components/countUsersBooks/CountUsersBooks";
 import Footer from "../../components/footer/Footer";
 import AboutUs from "../../components/aboutus/AboutUs";
 import homebook from '../../assets/homebook.jpg';
+import Contact from "../../components/contact/Contact";
 
 const Home = () => {
     const cards=useLoaderData();
@@ -16,6 +17,7 @@ const Home = () => {
             <Navbar></Navbar>
            <Banner></Banner>
            <AboutUs></AboutUs>
+          
            <div className='flex flex-col items-center justify-center mt-20 ' id='services' >
              <h3 className='text-[#ff0000]'>Choose Your Book Category</h3>
              <h1 className='text-black text-2xl md:text-4xl font-metamorphous font-bold text-center'>__Book Category__</h1>
@@ -33,6 +35,7 @@ const Home = () => {
           </div>
          </div>
           <CountUsersBooks></CountUsersBooks>
+          <Contact></Contact>
           
           <Footer></Footer>
         </div>
