@@ -68,10 +68,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute><BorrowedBooks></BorrowedBooks></PrivateRoute>,
         loader: () => fetch(`https://id-8-serversite.vercel.app/addtoborrow`)
       },
-      // {
-      //    path:'/borrowedbooks',
-      //    element:<BorrowedBooks></BorrowedBooks>
-      // },
+      
 
       {
         path: "/login",
